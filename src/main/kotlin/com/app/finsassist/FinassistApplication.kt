@@ -1,11 +1,13 @@
 package com.app.finsassist
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class FinservApplication
+@ConfigurationPropertiesScan
+class FinassistApplication
 
 fun main(args: Array<String>) {
-    runApplication<FinservApplication>(*args)
+    runApplication<FinassistApplication>(*args)
 }
