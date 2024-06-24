@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02-create-permission-table
+      author: Dmytro Martyshchuk
+      changes:
+        - createTable:
+            tableName: permissions
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(64)
+                  constraints:
+                    nullable: false
+                    unique: true
+        - createTable:
+            tableName: users_permissions
+            columns:
+              - column:
+                  name: user_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_users_permissions
+                    referencedTableName: users
+                    referencedColumnNames: id
+              - column:
+                  name: permission_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_permissions_users
+                    referencedTableName: permissions
+                    referencedColumnNames: id
