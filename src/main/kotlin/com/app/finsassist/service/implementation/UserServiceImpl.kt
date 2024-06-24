@@ -20,8 +20,9 @@ class UserServiceImpl(
     private val passwordEncoder: PasswordEncoder
 ) : UserService {
 
-    override fun getInfo(user: User): UserDto = userMapper.toDto(user)
+    override fun get(user: User): UserDto = userMapper.toDto(user)
 
+    @Transactional
     override fun create(request: UserCreateRequest): UserDto {
         if (userRepository.getByEmail(request.email).isPresent) {
             throw UserCreationException("User already exists")

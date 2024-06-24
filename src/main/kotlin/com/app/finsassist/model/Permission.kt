@@ -19,10 +19,10 @@ data class Permission(
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)
-    val name: AuthorityName
+    val name: Name
 ) : GrantedAuthority {
-    enum class AuthorityName {
-
+    enum class Name {
+        TEST
     }
 
     override fun getAuthority(): String = name.name

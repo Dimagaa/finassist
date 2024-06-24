@@ -27,11 +27,11 @@ class UserController(
     private val userService: UserService
 ) {
     @Operation(
-        summary = "Retrieve Current User Information",
-        description = "Get Information of the Currently Authenticated User"
+        summary = "Retrieve Current User",
+        description = "Get the Currently Authenticated User"
     )
     @GetMapping
-    fun getInfo(@AuthenticationPrincipal user: User) = userService.getInfo(user)
+    fun get(@AuthenticationPrincipal user: User) = userService.get(user)
 
     @Operation(
         summary = "Create a new user",

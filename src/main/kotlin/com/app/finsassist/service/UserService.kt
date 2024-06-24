@@ -7,7 +7,7 @@ import java.util.UUID
 
 
 interface UserService {
-    fun getInfo(user: User): UserDto
+    fun get(user: User): UserDto
 
     fun create(request: UserCreateRequest): UserDto
 

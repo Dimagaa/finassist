@@ -32,7 +32,6 @@ data class UserCreateRequest(
     @Schema(example = "Pwd1234")
     val repeatedPassword: String,
 
-    @field:NotBlank
     @field:Length(min = 3, max = 255)
     @Schema(example = "Bob")
     val firstName: String,
